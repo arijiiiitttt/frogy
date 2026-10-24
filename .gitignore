@@ -1,0 +1,6 @@
+node_modules
+dist
+host-data
+.env
+frogy.config.json
+*.log

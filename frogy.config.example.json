@@ -1,0 +1,18 @@
+{
+  "providers": {
+    "anthropic":  { "type": "anthropic",     "keyEnv": "ANTHROPIC_API_KEY" },
+    "openai":     { "type": "openai-compat", "keyEnv": "OPENAI_API_KEY",     "baseUrl": "https://api.openai.com/v1" },
+    "google":     { "type": "gemini",        "keyEnv": "GEMINI_API_KEY" },
+    "xai":        { "type": "openai-compat", "keyEnv": "XAI_API_KEY",        "baseUrl": "https://api.x.ai/v1" },
+    "openrouter": { "type": "openai-compat", "keyEnv": "OPENROUTER_API_KEY", "baseUrl": "https://openrouter.ai/api/v1" }
+  },
+  "tiers": {
+    "cheap":  ["anthropic/claude-haiku-5-5",  "google/REPLACE_WITH_FLASH_MODEL_ID", "openai/REPLACE_WITH_MINI_MODEL_ID"],
+    "mid":    ["anthropic/claude-sonnet-5-5", "openai/REPLACE_WITH_MID_MODEL_ID"],
+    "strong": ["anthropic/claude-opus-5-5",   "openai/REPLACE_WITH_TOP_MODEL_ID", "xai/REPLACE_WITH_GROK_MODEL_ID"]
+  },
+  "fallbackVia": "openrouter",
+  "aliases": {},
+  "timeoutMs": 60000,
+  "prices": {}
+}

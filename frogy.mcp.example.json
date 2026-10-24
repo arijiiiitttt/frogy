@@ -1,0 +1,13 @@
+{
+  "servers": {
+    "docs": {
+      "url": "https://mcp.example.com/mcp",
+      "headersEnv": { "Authorization": "DOCS_MCP_AUTH" },
+      "roles": ["general", "researcher"],
+      "tools": {
+        "search": { "access": "read" },
+        "create_ticket": { "access": "write", "description": "Create a ticket in the tracker (you write this text, not the server)" }
+      }
+    }
+  }
+}

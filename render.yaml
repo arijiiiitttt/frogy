@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: frogy-controller
+    runtime: node
+    plan: free
+    buildCommand: npm ci --include=dev && npm run build
+    startCommand: npm start
+    healthCheckPath: /healthz
+    autoDeploy: true
+    envVars:
+      - { key: NODE_VERSION, value: "20" }
+      - { key: MAX_CONCURRENT, value: "5" }
+      - { key: DAILY_TOKEN_BUDGET, value: "500000" }
+      - { key: DATABASE_URL, sync: false }
+      - { key: API_TOKEN, sync: false }
+      - { key: ADMIN_TOKEN, sync: false }
+      - { key: HOST_URL, sync: false }
+      - { key: HOST_TOKEN, sync: false }
+      - { key: TELEGRAM_BOT_TOKEN, sync: false }
+      - { key: TELEGRAM_CHAT_ID, sync: false }
+      - { key: ANTHROPIC_API_KEY, sync: false }
+      - { key: OPENAI_API_KEY, sync: false }
+      - { key: GEMINI_API_KEY, sync: false }
+      - { key: XAI_API_KEY, sync: false }
+      - { key: OPENROUTER_API_KEY, sync: false }

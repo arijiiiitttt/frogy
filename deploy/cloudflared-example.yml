@@ -1,0 +1,9 @@
+# Outbound-only tunnel so Render can reach the host API without opening ANY inbound port.
+# Only the API port (8787) is exposed. The admin port (8788) stays on loopback and is never tunneled.
+# Add a Cloudflare Access service-token policy on this hostname for a second authentication layer.
+tunnel: <TUNNEL-ID>
+credentials-file: /etc/cloudflared/<TUNNEL-ID>.json
+ingress:
+  - hostname: frogy-host.example.com
+    service: http://127.0.0.1:8787
+  - service: http_status:404

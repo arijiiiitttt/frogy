@@ -1,0 +1,28 @@
+# /etc/systemd/system/frogy-host.service
+# Starts LOCKED. After a reboot, run `frogy-host unlock` (tasks wait, they are not lost).
+[Unit]
+Description=Frogy host (credential broker + action executor)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=frogy
+Group=frogy
+WorkingDirectory=/opt/frogy
+EnvironmentFile=/etc/frogy/host.env
+ExecStart=/usr/bin/node dist/host/main.js serve
+Restart=on-failure
+RestartSec=5
+# Hardening
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/frogy
+CapabilityBoundingSet=
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+LockPersonality=true
+MemoryDenyWriteExecute=false
+
+[Install]
+WantedBy=multi-user.target
