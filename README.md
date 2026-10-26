@@ -36,7 +36,6 @@
 12. [Extending](#extending)
 13. [Troubleshooting](#troubleshooting)
 14. [Known limitations](#known-limitations)
-15. [Credits](#credits)
 
 
 
@@ -394,9 +393,3 @@ FROGY_URL=http://127.0.0.1:8080 FROGY_TOKEN=admin-456 node dist/cli/main.js stat
 - **Costs are tokens**, plus dollars only for models whose prices you enter; unpriced models count as $0.
 - **Free tier is best effort:** Render may restart or sleep the service; pingers reduce but do not eliminate that.
 - Single-user, no multi-tenancy, no autoscaling, Telegram is not end-to-end encrypted.
-
-
-
-## Credits
-
-Built on [Fastify](https://fastify.dev), [node-postgres](https://node-postgres.com), [zod](https://zod.dev), [commander](https://github.com/tj/commander.js) and [croner](https://github.com/hexagon/croner), with the [Gmail API](https://developers.google.com/gmail/api) (OAuth 2.0 with PKCE), the [Model Context Protocol](https://modelcontextprotocol.io), and the Anthropic, Google Gemini, OpenAI, xAI and OpenRouter APIs. The README layout follows the Cube fine-tuning workbench.
